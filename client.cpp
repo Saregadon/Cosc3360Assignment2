@@ -1,3 +1,5 @@
+#define _WIN32_WINNT 0x0501
+
 #include <stdio.h>
 #include <netdb.h> //used for struct hostent 
 #include <unistd.h>
@@ -67,7 +69,7 @@ int main(int argc, char *argv[])
     if (n < 0)
         error((char*)"ERROR writing to socket");
     bzero(buffer,256);
-    
+
     n = read(sockfd, buffer, 255);
     if (n < 0)
         error((char*)"ERROR reading from socket");
