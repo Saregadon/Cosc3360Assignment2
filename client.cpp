@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     portno = atoi(argv[2]);
     sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
     if (sockfd < 0)
-        error("ERROR opening socket");
+        error((char*)"ERROR opening socket");
 
     server = gethostbyname(argv[1]);
     if(server == NULL)
@@ -58,18 +58,18 @@ int main(int argc, char *argv[])
     serv_addr.sin_port = htons(portno);
 
     if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) //add (struct sockaddr *) to &serv_addr
-        error("ERROR connecting");
+        error((char*)"ERROR connecting");
 
     printf("Please enter the message: ");
     bzero(buffer, 256);
     fgets(buffer, 255, stdin);
     n = write(sockfd, buffer, strlen(buffer));
     if (n < 0)
-        error("ERROR writing to socket");
+        error((char*)"ERROR writing to socket");
     bzero(buffer,256);
     n = read(sockfd, buffer, 255);
     if (n < 0)
-        error("ERROR reading from socket");
+        error((char*)"ERROR reading from socket");
     printf("%s", buffer);
 
     return 0;

@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
     sockfd = socket(AF_UNIX, SOCK_STREAM, 0); //Must use UNIX on unix machine //AF_INET for internet machines
     if (sockfd < 0) 
-        error("ERROR opening socket"); //passes the port number which the server accepts connections as an argument aka sockfd
+        error((char*)"ERROR opening socket"); //passes the port number which the server accepts connections as an argument aka sockfd
 
     bzero((char*) &serv_addr, sizeof(serv_addr));
     portno = atoi(argv[1]);
@@ -46,22 +46,23 @@ int main(int argc, char *argv[])
     serv_addr.sin_addr.s_addr = INADDR_ANY;
 
     if(bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) 
-        error("ERROR on binding"); //error field
+        error((char*)"ERROR on binding"); //error field
 
     listen (sockfd,5); //listens on the socket for connections listen(filedescriptor, sizeof(backlogqueue));
 
     clilen = sizeof(cli_addr);
     newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen); //
     if (newsockfd < 0)
-        error("ERROR on accept");
+        error((char*)"ERROR on accept");
 
     bzero(buffer, 256);
     n = read(newsockfd, buffer, 255);
-    if (n < 0) error("ERROR reading from socket");
+    if (n < 0) error((char*)"ERROR reading from socket");
     printf("Here is the message: %s", buffer);
 
     n = write(newsockfd, "I got your message", 18);
-    if(n < 0) error("ERROR writing to socket");
+    if(n < 0)
+        error((char*)"ERROR writing to socket");
 
     return 0;
 }
