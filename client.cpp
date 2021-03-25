@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <netdb.h> //used for struct hostent
 #include <unistd.h>
 #include <string.h> //usesd for bzero();
 #include <iostream>
@@ -8,6 +7,16 @@
 #include <netinet/in.h>
 
 using namespace std;
+
+struct hostent
+{
+    char *h_name; //official name of host
+    char **h_aliases; //alias list
+    int h_addtrype; //host address type
+    int h_length; //length of the address
+    char **h_addr_list; //list of addressses from name server
+    #define h_addr , h_addr_list[0] //address for backwards compatibility
+};
 
 void error(char *msg)
 {
@@ -57,6 +66,7 @@ int main(int argc, char *argv[])
     if (n < 0)
         error((char*)"ERROR writing to socket");
     bzero(buffer,256);
+    
     n = read(sockfd, buffer, 255);
     if (n < 0)
         error((char*)"ERROR reading from socket");
