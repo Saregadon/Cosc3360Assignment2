@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     listen (sockfd,5); //listens on the socket for connections listen(filedescriptor, sizeof(backlogqueue));
 
     clilen = sizeof(cli_addr);
-    newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen); //
+    newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen); // change from clilen to add (socklen_t*)
     if (newsockfd < 0)
         error((char*)"ERROR on accept");
 

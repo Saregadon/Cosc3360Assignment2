@@ -73,5 +73,27 @@ int main(int argc, char *argv[])
         error((char*)"ERROR reading from socket");
     printf("%s", buffer);
 
+    //server enhancements
+
+    /*while(true)
+    {
+        newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen); // change from clilen to add (socklen_t*)
+    }
+
+    if(newsockfd < 0)
+        error((char*)"ERROR on accept");
+    int pid = fork();
+    if (pid < 0)
+        error((char*)"ERROR on accept");
+    if (pid == 0)
+    {
+        close(sockfd);
+        dostuff(newsockfd);
+        exit(0);
+    }
+    else
+        close(newsockfd);
+    */ //this is only for a "real world" server as this runs indefinitely
+
     return 0;
 }
