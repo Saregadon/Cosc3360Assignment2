@@ -1,5 +1,3 @@
-#define _WIN32_WINNT 0x0501
-
 #include <stdio.h>
 #include <netdb.h> //used for struct hostent 
 #include <unistd.h>
