@@ -67,6 +67,7 @@ int main(int argc, char *argv[])
     if (n < 0)
         error((char*)"ERROR writing to socket");
     bzero(buffer,256);
+    
     n = read(sockfd, buffer, 255);
     if (n < 0)
         error((char*)"ERROR reading from socket");
