@@ -22,7 +22,7 @@ void error(char* msg)
     exit(1);
 }
 
-int min(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     int sockfd, newsockfd, portno, clilen, n;
     char buffer[256];
