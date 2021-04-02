@@ -24,9 +24,10 @@ void error(char* msg)
 
 int main(int argc, char *argv[])
 {
-    int sockfd, newsockfd, portno, clilen, n;
+    int sockfd, newsockfd, portno, n;
     char buffer[256];
     struct sockaddr_in serv_addr, cli_addr; //sockaddr_in contains internet address
+    socklen_t clilen;
 
     if(argc < 2)
     {
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
     listen (sockfd,5); //listens on the socket for connections listen(filedescriptor, sizeof(backlogqueue));
 
     clilen = sizeof(cli_addr);
-    newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen); // change from clilen to add (socklen_t*)
+    newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen); // change from clilen to add (socklen_t*)
     if (newsockfd < 0)
         error((char*)"ERROR on accept");
 
@@ -63,6 +64,9 @@ int main(int argc, char *argv[])
     n = write(newsockfd, "I got your message", 18);
     if(n < 0)
         error((char*)"ERROR writing to socket");
+
+    close(newsockfd);
+    close(sockfd);
 
     return 0;
 }
