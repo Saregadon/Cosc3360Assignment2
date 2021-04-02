@@ -1,0 +1,14 @@
+jfparis@Odeon:~/3360/Spring21$ ./A2-client
+Enter the server host name: localhost
+Enter the server port number: 3222
+Enter a Zodiac sign: Moon
+You did not enter a Zodiac sign.
+jfparis@Odeon:~/3360/Spring21$ ./A2-client
+Enter the server host name: Odeon
+Enter the server port number: 3222
+Enter a Zodiac sign: Aquarius
+Take steps to get what you want.
+jfparis@Odeon:~/3360/Spring21$ ./A2-client
+Enter the server host name: localhost
+Enter the server port number: 3222
+Enter a Zodiac sign: TERMINATE

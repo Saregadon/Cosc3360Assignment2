@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
         exit(0);
     }
     portno = atoi(argv[2]);
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
     if (sockfd < 0)
         error((char*)"ERROR opening socket");
 
@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
     }
 
     bzero((char *) &serv_addr, sizeof(serv_addr));
-    serv_addr.sin_family = AF_INET;
-    bcopy((char *)server->h_addr, //h_addr_list instead of h_addr
+    serv_addr.sin_family = AF_UNIX;
+    bcopy((char *)server->h_addr,
           (char*)&serv_addr.sin_addr.s_addr, 
           server->h_length);
     serv_addr.sin_port = htons(portno);
@@ -94,6 +94,6 @@ int main(int argc, char *argv[])
         close(newsockfd);
     */ //this is only for a "real world" server as this runs indefinitely
     close(sockfd);
-    
+
     return 0;
 }
