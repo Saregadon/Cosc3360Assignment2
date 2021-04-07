@@ -84,10 +84,6 @@ int main()
     buffer[strlen(buffer) - 1] = '\0'; //used for the keypress enter "\0"
     cout << "Daily horoscope for " << buffer << ":" << endl;
 
-    n = write(newsockfd, "I got your message", 19);
-    if(n < 0)
-        error((char*)"ERROR writing to socket");
-
     string horoscope(buffer);
     string message;
 
