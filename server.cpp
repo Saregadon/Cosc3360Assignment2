@@ -6,6 +6,11 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 struct sockadder_in
@@ -22,19 +27,29 @@ void error(char* msg)
     exit(1);
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     int sockfd, newsockfd, portno, n;
     char buffer[256];
     struct sockaddr_in serv_addr, cli_addr; //sockaddr_in contains internet address
     socklen_t clilen;
 
-    
+    string inp;
 
-    if(argc < 2)
+    vector<string> horosc;
+    string signs[12] = {"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
+
+    ifstream ifs("predictions20.txt");
+
+    //if(argc < 2)
+    //{
+    //    fprintf(stderr,"ERROR, no port provided");
+    //    exit(1);
+    //}
+
+    while(getline(ifs, inp))
     {
-        fprintf(stderr,"ERROR, no port provided");
-        exit(1);
+        horosc.push_back(inp);
     }
 
     sockfd = socket(AF_UNIX, SOCK_STREAM, 0); //Must use UNIX on unix machine //AF_INET for internet machines
@@ -42,9 +57,11 @@ int main(int argc, char *argv[])
         error((char*)"ERROR opening socket"); //passes the port number which the server accepts connections as an argument aka sockfd
 
     bzero((char*) &serv_addr, sizeof(serv_addr));
-    portno = atoi(argv[1]);
+    //portno = atoi(argv[1]);
+    cout << "Please enter server port number: " << endl;
+    cin >> portno;
 
-    serv_addr.sin_family = AF_UNIX;
+    serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(portno);
     serv_addr.sin_addr.s_addr = INADDR_ANY;
 
@@ -58,14 +75,86 @@ int main(int argc, char *argv[])
     if (newsockfd < 0)
         error((char*)"ERROR on accept");
 
+    //magic?
     bzero(buffer, 256);
     n = read(newsockfd, buffer, 255);
     if (n < 0) error((char*)"ERROR reading from socket");
-    printf("Here is the message: %s", buffer);
+    //printf("Here is the message: %s", buffer);
+
+    buffer[strlen(buffer) - 1] = '\0'; //used for the keypress enter "\0"
+    cout << "Daily horoscope for " << buffer << ":" << endl;
 
     n = write(newsockfd, "I got your message", 18);
     if(n < 0)
         error((char*)"ERROR writing to socket");
+
+    string horoscope(buffer);
+
+    if(horoscope == signs[0]) //Aries
+    {
+        n = write(newsockfd, "All good things come to those who wait.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[1]) //Taurus
+    {
+        n = write(newsockfd, "Something will change today.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[2]) //Gemini
+    {
+        n = write(newsockfd, "You might get to \"show off \" a little.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[3]) //Cancer
+    {
+        n = write(newsockfd, "Try to keep your peace today.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[4]) //Leo
+    {
+        n = write(newsockfd, "Be a little humble today.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[5]) //Virgo
+    {
+        n = write(newsockfd, "Remember it takes two to tango.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[6]) //Libra
+    {
+        n = write(newsockfd, "It will be nice to do a good deed.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[7]) //Scorpio
+    {
+        n = write(newsockfd, "Today is not a good day to fight.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[8]) //Sagittarius
+    {
+        n = write(newsockfd, "Take it easy today.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[9]) //Capricorn
+    {
+        n = write(newsockfd, "Try not to take yourself too seriously.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[10]) //Aquarius
+    {
+        n = write(newsockfd, "Take steps to get what you want.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == signs[11]) //Pisces
+    {
+        n = write(newsockfd, "Your parents might need your attention.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
+    else if(horoscope == "Terminate")
+    {
+        n = write(newsockfd, "All good things come to those who wait.", 39);
+        if(n < 0) error((char*)"ERROR writing to socket");
+    }
 
     close(newsockfd);
     close(sockfd);
