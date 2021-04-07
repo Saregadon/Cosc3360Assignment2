@@ -33,10 +33,10 @@ int main()
     char buffer[256];
     string name;
 
-    cout << "Please enter the server host name: " << endl;
+    cout << "Please enter the server host name: ";
     cin >> name;
     const char* hostname = name.c_str();
-    cout << "Please enter the port number." << endl;
+    cout << "Please enter the port number: ";
     cin >> portno;
 
     if(portno < 1024 || portno > 65535)
