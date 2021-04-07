@@ -179,8 +179,13 @@ int main()
         }
         else if(horoscope == "Terminate")
         {
-            n = write(newsockfd, "Got your message.", 18);
+            n = write(newsockfd, "Server will terminate. Goodbye!", 32);
             if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else
+        {
+            n = write(newsockfd, "You did not enter a Zodiac sign.", 33);
+            if(n < 0) error((char*) "ERROR writing to socket");
         }
     }
 
