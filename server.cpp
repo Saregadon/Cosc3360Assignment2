@@ -90,70 +90,73 @@ int main()
 
     string horoscope(buffer);
 
-    if(horoscope == signs[0] || horosc[] == signs[0]) //Aries
+    for(int i = 0; i < horosc.size(); i++)
     {
-        n = write(newsockfd, "All good things come to those who wait.", 40);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[1]) //Taurus
-    {
-        n = write(newsockfd, "Something will change today.", 29);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[2]) //Gemini
-    {
-        n = write(newsockfd, "You might get to \"show off \" a little.", 39);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[3]) //Cancer
-    {
-        n = write(newsockfd, "Try to keep your peace today.", 30);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[4]) //Leo
-    {
-        n = write(newsockfd, "Be a little humble today.", 26);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[5]) //Virgo
-    {
-        n = write(newsockfd, "Remember it takes two to tango.", 32);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[6]) //Libra
-    {
-        n = write(newsockfd, "It will be nice to do a good deed.", 35);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[7]) //Scorpio
-    {
-        n = write(newsockfd, "Today is not a good day to fight.", 34);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[8]) //Sagittarius
-    {
-        n = write(newsockfd, "Take it easy today.", 20);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[9]) //Capricorn
-    {
-        n = write(newsockfd, "Try not to take yourself too seriously.", 40);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[10]) //Aquarius
-    {
-        n = write(newsockfd, "Take steps to get what you want.", 33);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == signs[11]) //Pisces
-    {
-        n = write(newsockfd, "Your parents might need your attention.", 40);
-        if(n < 0) error((char*)"ERROR writing to socket");
-    }
-    else if(horoscope == "Terminate")
-    {
-        n = write(newsockfd, "Got your message.", 18);
-        if(n < 0) error((char*)"ERROR writing to socket");
+        if(horoscope == signs[0] || horosc[i] == signs[0]) //Aries
+        {
+            n = write(newsockfd, "All good things come to those who wait.", 40);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[1] || horosc[i] == signs[1]) //Taurus
+        {
+            n = write(newsockfd, "Something will change today.", 29);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[2] || horosc[i] == signs[2]) //Gemini
+        {
+            n = write(newsockfd, "You might get to \"show off \" a little.", 39);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[3] || horosc[i] == signs[3]) //Cancer
+        {
+            n = write(newsockfd, "Try to keep your peace today.", 30);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[4] || horosc[i] == signs[4]) //Leo
+        {
+            n = write(newsockfd, "Be a little humble today.", 26);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[5] || horosc[i] == signs[5]) //Virgo
+        {
+            n = write(newsockfd, "Remember it takes two to tango.", 32);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[6] || horosc[i] == signs[6]) //Libra
+        {
+            n = write(newsockfd, "It will be nice to do a good deed.", 35);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[7] || horosc[i] == signs[7]) //Scorpio
+        {
+            n = write(newsockfd, "Today is not a good day to fight.", 34);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[8] || horosc[i] == signs[8]) //Sagittarius
+        {
+            n = write(newsockfd, "Take it easy today.", 20);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[9] || horosc[i] == signs[9]) //Capricorn
+        {
+            n = write(newsockfd, "Try not to take yourself too seriously.", 40);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[10] || horosc[i] == signs[10]) //Aquarius
+        {
+            n = write(newsockfd, "Take steps to get what you want.", 33);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == signs[11] || horosc[i] == signs[11]) //Pisces
+        {
+            n = write(newsockfd, "Your parents might need your attention.", 40);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
+        else if(horoscope == "Terminate")
+        {
+            n = write(newsockfd, "Got your message.", 18);
+            if(n < 0) error((char*)"ERROR writing to socket");
+        }
     }
 
     close(newsockfd);
