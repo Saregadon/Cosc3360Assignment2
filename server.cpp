@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
     struct sockaddr_in serv_addr, cli_addr; //sockaddr_in contains internet address
     socklen_t clilen;
 
+    
+
     if(argc < 2)
     {
         fprintf(stderr,"ERROR, no port provided");

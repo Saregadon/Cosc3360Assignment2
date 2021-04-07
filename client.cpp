@@ -25,30 +25,37 @@ void error(char *msg)
     exit(1);
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     int sockfd, portno, n;
     struct sockaddr_in serv_addr;
     struct hostent *server;
-
     char buffer[256];
-    if (argc < 3)
+    string name;
+
+    cout << "Please enter the server host name: " << endl;
+    cin >> name;
+    const char* hostname = name.c_str();
+    cout << "Please enter the port number." << endl;
+    cin >> portno;
+
+    if(portno < 1024 || portno > 65535)
     {
-        fprintf(stderr, "usage %s hostname port", argv[0]);
-        exit(0);
+        cout << "ERROR: Please enter a port number above 1024." << endl;
     }
-    portno = atoi(argv[2]);
-    sockfd = socket(AF_UNIX, SOCK_STREAM, 0);
+
+    //portno = atoi(argv[2]);
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0)
         error((char*)"ERROR opening socket");
 
-    server = gethostbyname(argv[1]);
+    server = gethostbyname(hostname);
     if(server == NULL)
     {
         fprintf(stderr, "ERROR, no such host");
         exit(0);
     }
-
+    cin.ignore();
     bzero((char *) &serv_addr, sizeof(serv_addr));
     serv_addr.sin_family = AF_UNIX;
     bcopy((char *)server->h_addr,
@@ -59,7 +66,7 @@ int main(int argc, char *argv[])
     if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) //add (struct sockaddr *) to &serv_addr
         error((char*)"ERROR connecting");
 
-    printf("Please enter the message: ");
+    printf("Please enter a Zodiac sign: ");
     bzero(buffer, 256);
     fgets(buffer, 255, stdin);
     n = write(sockfd, buffer, strlen(buffer));
