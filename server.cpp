@@ -98,84 +98,84 @@ int main()
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[1]) //Taurus
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[2]) //Gemini
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[3]) //Cancer
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[4]) //Leo
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[5]) //Virgo
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[6]) //Libra
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[7]) //Scorpio
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[8]) //Sagittarius
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[9]) //Capricorn
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[10]) //Aquarius
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == signs[11]) //Pisces
         {
             message = horoscmsg[i];
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error("ERROR writing to socket");
+            if (n < 0) error((char*)"ERROR writing to socket");
         }
         else if(horoscope == "Terminate")
         {
