@@ -28,7 +28,7 @@ using namespace std;
     #define h_addr, h_addr_list[0] //address for backwards compatibility
 };*/
 
-void error(char *msg)
+void error(const char *msg)
 {
     perror(msg);
     exit(1);
@@ -56,7 +56,7 @@ int main()
     //portno = atoi(argv[2]);
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0)
-        error((char*)"ERROR opening socket");
+        error("ERROR opening socket");
 
     server = gethostbyname(hostname);
     if(server == NULL)
@@ -73,7 +73,7 @@ int main()
     serv_addr.sin_port = htons(portno);
 
     if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) //add (struct sockaddr *) to &serv_addr
-        error((char*)"ERROR connecting");
+        error("ERROR connecting");
 
     printf("Please enter a Zodiac sign: ");
     string zod;
@@ -82,12 +82,12 @@ int main()
     fgets(buffer, 255, stdin);
     n = write(sockfd, zod.c_str(), strlen(buffer));
     if (n < 0)
-        error((char*)"ERROR writing to socket");
+        error("ERROR writing to socket");
     bzero(buffer,256);
 
     n = read(sockfd, buffer, 255);
     if (n < 0)
-        error((char*)"ERROR reading from socket");
+        error("ERROR reading from socket");
     printf("%s", buffer);
 
     //server enhancements
