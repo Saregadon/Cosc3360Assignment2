@@ -85,7 +85,6 @@ int main()
     n = read(sockfd, buffer, 255);
     if (n < 0)
         error("ERROR reading from socket");
-    printf("%s", buffer);
 
     string fix(buffer);
     cout << fix << endl;
