@@ -177,7 +177,7 @@ int main()
             message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
-            if (n < 0) error((char*)"ERROR writing to socket");
+            if (n < 0) error("ERROR writing to socket");
         }
         else if(horoscope == "Terminate")
         {
