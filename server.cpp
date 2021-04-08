@@ -210,7 +210,6 @@ int main()
         }
         else if(horoscope == "Terminate")
         {
-            n = write(newsockfd, "Server will terminate. Goodbye!", 32);
             cout << "Server will terminate. Goodbye!" << endl;
             break;
         }
