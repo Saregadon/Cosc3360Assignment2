@@ -97,7 +97,14 @@ int main()
         //printf("Here is the message: %s", buffer);
 
         buffer[strlen(buffer) - 1] = '\0'; //used for the keypress enter "\0"
-        cout << "Daily horoscope for " << buffer << ":" << endl;
+
+        if(buffer == "Terminate")
+        {
+            n = write(newsockfd, "Server will terminate. Goodbye!", 32);
+            break;
+        }
+        else
+            cout << "Daily horoscope for " << buffer << ":" << endl;
 
         string horoscope(buffer);
         string message;
@@ -188,13 +195,6 @@ int main()
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error("ERROR writing to socket");
-        }
-        else if(horoscope == "Terminate")
-        {
-            n = write(newsockfd, "Server will terminate. Goodbye!", 32);
-            if(n < 0) error("ERROR writing to socket");
-            close(newsockfd);
-            break;
         }
         else
         {
