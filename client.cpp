@@ -77,10 +77,9 @@ int main()
 
     printf("Please enter a Zodiac sign: ");
     string zod;
-    cin >> zod;
     bzero(buffer, 256);
     fgets(buffer, 255, stdin);
-    n = write(sockfd, zod.c_str(), zod.length());
+    n = write(sockfd, buffer, strlen(buffer));
     if (n < 0)
         error("ERROR writing to socket");
     bzero(buffer,256);
