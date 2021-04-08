@@ -210,7 +210,6 @@ int main()
         }
         else if(horoscope == "Terminate")
         {
-            cout << endl;
             cout << "Server will terminate. Goodbye!" << endl;
             break;
         }
