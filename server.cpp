@@ -36,8 +36,8 @@ int main()
 
     string inp;
     int pos = 0;
-    map<char, string> horoscmsg;
-    map<char, string>::iterator it;
+    map<string, string> horoscmsg;
+    map<string, string>::iterator it;
 
     string signs[12] = {"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
 
@@ -87,7 +87,7 @@ int main()
     buffer[strlen(buffer) - 1] = '\0'; //used for the keypress enter "\0"
     cout << "Daily horoscope for " << buffer << ":" << endl;
 
-    char horoscope((char)buffer);
+    string horoscope(buffer);
     string message;
 
     //horoscmsg.lower_bound(horoscope)->first //signs[]
@@ -181,7 +181,7 @@ int main()
                 n = write(newsockfd, buffer,strlen(buffer));
                 if (n < 0) error((char*)"ERROR writing to socket");
             }
-            else if(horoscope == (char)"Terminate")
+            else if(horoscope == "Terminate")
             {
                 n = write(newsockfd, "Server will terminate. Goodbye!", 32);
                 if(n < 0) error((char*)"ERROR writing to socket");
@@ -194,7 +194,7 @@ int main()
                 if(n < 0) error((char*) "ERROR writing to socket");
             }
         }
-        if(horoscope == (char)"Terminate") break;
+        if(horoscope == "Terminate") break;
     }
 
     close(newsockfd);
