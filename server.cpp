@@ -61,7 +61,7 @@ int main()
 
     bzero((char*) &serv_addr, sizeof(serv_addr));
     //portno = atoi(argv[1]);
-    cout << "Please enter server port number: " << endl;
+    cout << "Please enter server port number: ";
     cin >> portno;
 
     serv_addr.sin_family = AF_INET;
