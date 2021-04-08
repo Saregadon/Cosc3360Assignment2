@@ -90,88 +90,91 @@ int main()
     string horoscope(buffer);
     string message;
 
-    for(it=horoscmsg.begin(); it!= horoscmsg.end(); it++)
+    //horoscmsg.lower_bound(horoscope)->first //signs[]
+    //horoscmsg.lower_bound(horoscope)->second //horoscope message
+
+    while(true)
     {
-        if(horoscope == it->first) //Aries
+        if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Aries
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Taurus
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Taurus
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Gemini
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Gemini
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Cancer
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Cancer
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Leo
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Leo
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Virgo
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Virgo
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Libra
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Libra
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Scorpio
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Scorpio
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Sagittarius
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Sagittarius
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Capricorn
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Capricorn
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Aquarius
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Aquarius
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
         }
-        else if(horoscope == it->first) //Pisces
+        else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Pisces
         {
-            message = it->second;
+            message = horoscmsg.lower_bound(horoscope)->second;
             strcpy(buffer, message.c_str());
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error((char*)"ERROR writing to socket");
@@ -181,6 +184,7 @@ int main()
             n = write(newsockfd, "Server will terminate. Goodbye!", 32);
             if(n < 0) error((char*)"ERROR writing to socket");
             close(newsockfd);
+            break;
         }
         else
         {
