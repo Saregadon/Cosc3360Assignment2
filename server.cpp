@@ -29,13 +29,13 @@ void error(const char* msg)
 
 int main()
 {
-    int sockfd, newsockfd, portno, n, pos = 0;
+    int sockfd, newsockfd, portno, n;
     char buffer[256];
     struct sockaddr_in serv_addr, cli_addr; //sockaddr_in contains internet address
     socklen_t clilen;
 
     string inp;
-
+    int pos = 0;
     map<string, string> horoscmsg;
     map<string, string>::iterator it;
 
