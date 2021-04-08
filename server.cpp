@@ -70,7 +70,7 @@ int main()
 
     bzero((char*) &serv_addr, sizeof(serv_addr));
     //portno = atoi(argv[1]);
-    cout << "Please enter server port number: ";
+    cout << "Enter server port number: ";
     cin >> portno;
 
     serv_addr.sin_family = AF_INET;
@@ -216,6 +216,7 @@ int main()
         else
         {
             n = write(newsockfd, "You did not enter a Zodiac sign.", 33);
+            cout << "You did not enter a Zodiac sign." << endl;
             if(n < 0) error("ERROR writing to socket");
         }
     }

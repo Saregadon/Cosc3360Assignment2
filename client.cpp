@@ -42,9 +42,9 @@ int main()
     char buffer[256];
     string name;
 
-    cout << "Please enter the server host name: ";
+    cout << "Enter the server host name: ";
     cin >> name;
-    cout << "Please enter the port number: ";
+    cout << "Enter the server port number: ";
     cin >> portno;
 
     if(portno < 1024 || portno > 65535)
@@ -74,7 +74,7 @@ int main()
     if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) //add (struct sockaddr *) to &serv_addr
         error("ERROR connecting");
 
-    printf("Please enter a Zodiac sign: ");
+    printf("Enter a Zodiac sign: ");
     bzero(buffer, 256);
     fgets(buffer, 255, stdin);
     n = write(sockfd, buffer, strlen(buffer));
