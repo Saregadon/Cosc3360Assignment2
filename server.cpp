@@ -208,9 +208,10 @@ int main()
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error("ERROR writing to socket");
         }
-        else if(buffer == "Terminate")
+        else if(horoscope == "Terminate")
         {
             n = write(newsockfd, "Server will terminate. Goodbye!", 32);
+            cout << "Server will terminate. Goodbye!" << endl;
             break;
         }
         else
