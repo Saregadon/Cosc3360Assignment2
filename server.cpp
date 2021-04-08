@@ -51,7 +51,7 @@ int main()
 
     while(getline(ifs, inp))
     {
-        horoscmsg.insert(signs[pos],inp);
+        horoscmsg.insert(make_pair(signs[pos],inp));
         pos++;
     }
 
@@ -191,7 +191,6 @@ int main()
             n = write(newsockfd, "You did not enter a Zodiac sign.", 33);
             if(n < 0) error("ERROR writing to socket");
         }
-    
     }
 
     close(newsockfd);
