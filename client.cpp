@@ -1,3 +1,12 @@
+// Assignment 2
+/*
+    Christian Schuering
+    Cosc 3360
+    Explanation - The program reads in a prediction from a server file
+    to a client file what horoscope reads in for any specific zodiac
+    sign.
+*/
+
 #include <stdio.h>
 #include <netdb.h> //used for struct hostent 
 #include <unistd.h>
@@ -67,9 +76,11 @@ int main()
         error((char*)"ERROR connecting");
 
     printf("Please enter a Zodiac sign: ");
+    string zod;
+    cin >> zod;
     bzero(buffer, 256);
     fgets(buffer, 255, stdin);
-    n = write(sockfd, buffer, strlen(buffer));
+    n = write(sockfd, zod.c_str(), strlen(buffer));
     if (n < 0)
         error((char*)"ERROR writing to socket");
     bzero(buffer,256);

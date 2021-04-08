@@ -1,3 +1,12 @@
+// Assignment 2
+/*
+    Christian Schuering
+    Cosc 3360
+    Explanation - The program reads in a prediction from a server file
+    to a client file what horoscope reads in for any specific zodiac
+    sign.
+*/
+
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h> //usesd for bzero();
