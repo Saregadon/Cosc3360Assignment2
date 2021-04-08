@@ -44,7 +44,6 @@ int main()
 
     cout << "Please enter the server host name: ";
     cin >> name;
-    const char* hostname = name.c_str();
     cout << "Please enter the port number: ";
     cin >> portno;
 
@@ -58,7 +57,7 @@ int main()
     if (sockfd < 0)
         error("ERROR opening socket");
 
-    server = gethostbyname(hostname);
+    server = gethostbyname(name.c_str());
     if(server == NULL)
     {
         fprintf(stderr, "ERROR, no such host");
@@ -76,7 +75,6 @@ int main()
         error("ERROR connecting");
 
     printf("Please enter a Zodiac sign: ");
-    string zod;
     bzero(buffer, 256);
     fgets(buffer, 255, stdin);
     n = write(sockfd, buffer, strlen(buffer));
