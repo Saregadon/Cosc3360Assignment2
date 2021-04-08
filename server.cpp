@@ -21,7 +21,7 @@ struct sockadder_in
     char sin_zero[8]; //not used, must be 0
 };
 
-void error(char* msg)
+void error(const char* msg)
 {
     perror(msg);
     exit(1);
