@@ -196,6 +196,11 @@ int main()
             n = write(newsockfd, buffer,strlen(buffer));
             if (n < 0) error("ERROR writing to socket");
         }
+        else if(buffer == "Terminate")
+        {
+            n = write(newsockfd, "Server will terminate. Goodbye!", 32);
+            break;
+        }
         else
         {
             n = write(newsockfd, "You did not enter a Zodiac sign.", 33);
