@@ -87,6 +87,9 @@ int main()
         error("ERROR reading from socket");
     printf("%s", buffer);
 
+    string fix(buffer);
+    cout << fix << endl;
+
     //server enhancements
 
     /*while(true)
