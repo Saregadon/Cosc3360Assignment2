@@ -83,27 +83,28 @@ int main()
     listen (sockfd,5); //listens on the socket for connections listen(filedescriptor, sizeof(backlogqueue));
 
     clilen = sizeof(cli_addr);
-    newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen); // change from clilen to add (socklen_t*)
-    if (newsockfd < 0)
-        error("ERROR on accept");
-
-    //magic
-    bzero(buffer, 256);
-    n = read(newsockfd, buffer, 255);
-    if (n < 0) error("ERROR reading from socket");
-    //printf("Here is the message: %s", buffer);
-
-    buffer[strlen(buffer) - 1] = '\0'; //used for the keypress enter "\0"
-    cout << "Daily horoscope for " << buffer << ":" << endl;
-
-    string horoscope(buffer);
-    string message;
-
-    //horoscmsg.lower_bound(horoscope)->first //signs[]
-    //horoscmsg.lower_bound(horoscope)->second //horoscope
 
     while(true)
     {
+        newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen); // change from clilen to add (socklen_t*)
+        if (newsockfd < 0)
+            error("ERROR on accept");
+
+        //magic
+        bzero(buffer, 256);
+        n = read(newsockfd, buffer, 255);
+        if (n < 0) error("ERROR reading from socket");
+        //printf("Here is the message: %s", buffer);
+
+        buffer[strlen(buffer) - 1] = '\0'; //used for the keypress enter "\0"
+        cout << "Daily horoscope for " << buffer << ":" << endl;
+
+        string horoscope(buffer);
+        string message;
+
+        //horoscmsg.lower_bound(horoscope)->first //signs[]
+        //horoscmsg.lower_bound(horoscope)->second //horoscope
+
         if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Aries
         {
             message = horoscmsg.lower_bound(horoscope)->second;
