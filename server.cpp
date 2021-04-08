@@ -57,7 +57,7 @@ int main()
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); //Must use UNIX on unix machine //AF_INET for internet machines
     if (sockfd < 0) 
-        error((char*)"ERROR opening socket"); //passes the port number which the server accepts connections as an argument aka sockfd
+        error("ERROR opening socket"); //passes the port number which the server accepts connections as an argument aka sockfd
 
     bzero((char*) &serv_addr, sizeof(serv_addr));
     //portno = atoi(argv[1]);
