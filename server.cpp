@@ -98,14 +98,6 @@ int main()
 
         buffer[strlen(buffer) - 1] = '\0'; //used for the keypress enter "\0"
 
-        if(buffer == "Terminate")
-        {
-            n = write(newsockfd, "Server will terminate. Goodbye!", 32);
-            break;
-        }
-        else
-            cout << "Daily horoscope for " << buffer << ":" << endl;
-
         string horoscope(buffer);
         string message;
 
@@ -114,6 +106,7 @@ int main()
 
         if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Aries
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -122,6 +115,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Taurus
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -130,6 +124,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Gemini
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -138,6 +133,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Cancer
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -146,6 +142,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Leo
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -154,6 +151,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Virgo
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -162,6 +160,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Libra
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -170,6 +169,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Scorpio
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -178,6 +178,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Sagittarius
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -186,6 +187,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Capricorn
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -194,6 +196,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Aquarius
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -202,6 +205,7 @@ int main()
         }
         else if(horoscope == horoscmsg.lower_bound(horoscope)->first) //Pisces
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             message = horoscmsg.lower_bound(horoscope)->second;
             cout << horoscmsg.lower_bound(horoscope)->second << endl;
             strcpy(buffer, message.c_str());
@@ -211,10 +215,12 @@ int main()
         else if(horoscope == "Terminate")
         {
             cout << "Server will terminate. Goodbye!" << endl;
+            close(newsockfd);
             break;
         }
         else
         {
+            cout << "Daily horoscope for " << buffer << ":" << endl;
             n = write(newsockfd, "You did not enter a Zodiac sign.", 33);
             cout << "You did not enter a Zodiac sign." << endl;
             if(n < 0) error("ERROR writing to socket");
